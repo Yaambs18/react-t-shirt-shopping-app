@@ -1,0 +1,73 @@
+.tshirt-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 50%;
+    margin: auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    background: #2A7B9B;
+    background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
+}
+
+.form-control {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.form-control label {
+    width: 140px;
+}
+
+.form-control input {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.form-control select {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.actions {
+    margin: 1rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.add-tshirt-btn {
+    background-color: rgba(42, 123, 155, 1);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-tshirt-btn:hover,
+.add-tshirt-btn:active {
+    cursor: pointer;
+    background-color: rgba(42, 123, 155, 0.562);
+}
+
+.cancel-btn {
+    background-color: #eb5325;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancel-btn:hover,
+.cancel-btn:active {
+    cursor: pointer;
+    background-color: #eb53259f;
+}

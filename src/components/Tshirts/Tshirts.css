@@ -1,0 +1,26 @@
+.show-form {
+    margin: 1rem;
+    padding: 1rem;
+    background-color: rgba(87, 199, 133, 1);
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+}
+
+.tshirts-container {
+    padding: 1rem;
+    padding-top: 5rem;
+}
+
+.tshirts {
+    list-style: none;
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}

@@ -1,0 +1,17 @@
+.header {
+    position: fixed;
+    background-color: rgba(42, 123, 155, 1);
+    color: white;
+    padding: 0 20px;
+    margin: 0;
+    display: flex;
+    width: 100%;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+.header h3 {
+    margin: 0;
+    padding: 10px 0;
+    font-size: 28px;
+}
