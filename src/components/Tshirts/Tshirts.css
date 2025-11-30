@@ -9,6 +9,8 @@
 }
 
 .tshirts-container {
+    min-height: 100vh;
+    box-sizing: border-box;
     padding: 1rem;
     padding-top: 5rem;
 }

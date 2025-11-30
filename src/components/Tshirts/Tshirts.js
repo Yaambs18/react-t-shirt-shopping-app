@@ -12,7 +12,7 @@ const dummyTshirts = [
         name: 'T-shirt 1',
         description: 'Description 1',
         sizes: ['S', 'M', 'L', 'XL'],
-        sizeTotalQuantity: { S: 10, M: 10, L: 10, XL: 10 },
+        sizeTotalQuantity: { S: 10, M: 5, L: 2, XL: 1 },
         price: 100
     },
     {
@@ -20,7 +20,7 @@ const dummyTshirts = [
         name: 'T-shirt 2',
         description: 'Description 2',
         sizes: ['S', 'M', 'L', 'XL'],
-        sizeTotalQuantity: { S: 10, M: 10, L: 10, XL: 10 },
+        sizeTotalQuantity: { S: 10, M: 20, L: 15, XL: 3 },
         price: 200
     },
     {
@@ -44,6 +44,17 @@ const Tshirts = (props) => {
         // console.log(tshirt);
         setTshirts(prevShirts => [...prevShirts, tshirt]);
     }
+
+    const updateTshirtQuantity = (id, size, quantity) => {
+        setTshirts(prevShirts => {
+            return prevShirts.map(tshirt => {
+                if (tshirt.id === id) {
+                    return { ...tshirt, sizeTotalQuantity: { ...tshirt.sizeTotalQuantity, [size]: quantity } }
+                }
+                return tshirt;
+            })
+        });
+    }
     return (
         <Card className="tshirts-container">
             {!showForm && <button className="show-form" onClick={handleShowForm}>Show Add T-shirt Form</button>}
@@ -58,6 +69,7 @@ const Tshirts = (props) => {
                         sizes={tshirt.sizes}
                         sizeTotalQuantity={tshirt.sizeTotalQuantity}
                         price={tshirt.price}
+                        onUpdateQuantity={updateTshirtQuantity}
                     />
                 })}
             </ul>

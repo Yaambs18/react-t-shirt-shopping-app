@@ -14,6 +14,7 @@ const Tshirt = (props) => {
     const addToCartHandler = () => {
         const tempItem = { ...props, amount: 1, size: selectedSize }
         cartCtx.addItem(tempItem);
+        props.onUpdateQuantity(props.id, selectedSize, props.sizeTotalQuantity[selectedSize] - 1);
     }
     return (
         <li className="tshirt">
@@ -24,7 +25,8 @@ const Tshirt = (props) => {
                     size => <option key={size}>{size}</option>
                 )}
             </select>
-            <span className="price">{props.price}</span>
+            <span className="size-quantity">{props.sizeTotalQuantity[selectedSize]}</span>
+            <span className="price">Rs.{props.price}</span>
             <button className="add-to-cart" onClick={addToCartHandler}>Add to Cart</button>
         </li>
     )
