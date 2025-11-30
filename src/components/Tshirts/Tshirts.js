@@ -6,15 +6,42 @@ import Card from "../UI/Card"
 
 import "./Tshirts.css"
 
+const dummyTshirts = [
+    {
+        id: 't1',
+        name: 'T-shirt 1',
+        description: 'Description 1',
+        sizes: ['S', 'M', 'L', 'XL'],
+        sizeTotalQuantity: { S: 10, M: 10, L: 10, XL: 10 },
+        price: 100
+    },
+    {
+        id: 't2',
+        name: 'T-shirt 2',
+        description: 'Description 2',
+        sizes: ['S', 'M', 'L', 'XL'],
+        sizeTotalQuantity: { S: 10, M: 10, L: 10, XL: 10 },
+        price: 200
+    },
+    {
+        id: 't3',
+        name: 'T-shirt 3',
+        description: 'Description 3',
+        sizes: ['S', 'M', 'L', 'XL'],
+        sizeTotalQuantity: { S: 10, M: 10, L: 10, XL: 10 },
+        price: 300
+    }
+];
+
 const Tshirts = (props) => {
     const [showForm, setShowForm] = useState(false);
-    const [tshirts, setTshirts] = useState([]);
+    const [tshirts, setTshirts] = useState(dummyTshirts);
 
     const handleShowForm = () => {
         setShowForm(!showForm);
     }
     const handleAddTshirt = (tshirt) => {
-        console.log(tshirt);
+        // console.log(tshirt);
         setTshirts(prevShirts => [...prevShirts, tshirt]);
     }
     return (
@@ -25,9 +52,11 @@ const Tshirts = (props) => {
                 {tshirts.map((tshirt, index) => {
                     return <Tshirt
                         key={index}
+                        id={tshirt.id}
                         name={tshirt.name}
                         description={tshirt.description}
                         sizes={tshirt.sizes}
+                        sizeTotalQuantity={tshirt.sizeTotalQuantity}
                         price={tshirt.price}
                     />
                 })}

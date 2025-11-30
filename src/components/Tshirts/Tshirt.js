@@ -1,18 +1,31 @@
+import { useContext, useState } from "react";
 import "./Tshirt.css"
+import CartContext from "../store/cart-context";
 
 const Tshirt = (props) => {
-    console.log('prop', props)
+    const cartCtx = useContext(CartContext);
+
+    const [selectedSize, setSelectedSize] = useState(props.sizes[0]);
+
+    const sizeChangeHandler = (event) => {
+        setSelectedSize(event.target.value);
+    }
+
+    const addToCartHandler = () => {
+        const tempItem = { ...props, amount: 1, size: selectedSize }
+        cartCtx.addItem(tempItem);
+    }
     return (
         <li className="tshirt">
             <span className="name">{props.name}</span>
             <p className="description">{props.description}</p>
-            <select className="size">
+            <select className="size" value={selectedSize} onChange={sizeChangeHandler}>
                 {props.sizes.map(
                     size => <option key={size}>{size}</option>
                 )}
             </select>
             <span className="price">{props.price}</span>
-            <button className="add-to-cart">Add to Cart</button>
+            <button className="add-to-cart" onClick={addToCartHandler}>Add to Cart</button>
         </li>
     )
 }

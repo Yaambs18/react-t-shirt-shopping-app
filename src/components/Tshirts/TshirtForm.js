@@ -7,6 +7,7 @@ const TshirtForm = (props) => {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [sizes, setSizes] = useState([]);
+    const [sizeTotalQuantity, setSizeTotalQuantity] = useState([]);
     const [price, setPrice] = useState('');
 
     const handleNameChange = (event) => {
@@ -21,13 +22,18 @@ const TshirtForm = (props) => {
     const handlePriceChange = (event) => {
         setPrice(event.target.value);
     }
+    const handleSizeTotalQuantityChange = (event) => {
+        setSizeTotalQuantity(event.target.value);
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault();
         const tshirt = {
+            id: Math.random().toString(),
             name,
             description,
             sizes,
+            sizeTotalQuantity,
             price
         }
         props.onAddTshirt(tshirt);
@@ -57,6 +63,10 @@ const TshirtForm = (props) => {
                     <option value="XL">XL</option>
                     <option value="XXL">XXL</option>
                 </select>
+            </div>
+            <div className="form-control">
+                <label htmlFor="sizeTotalQuantity">Size Total Quantity: </label>
+                <input type="number" id="sizeTotalQuantity" name="sizeTotalQuantity" placeholder="Enter T-shirt size total quantity" value={sizeTotalQuantity} onChange={handleSizeTotalQuantityChange} />
             </div>
             <div className="form-control">
                 <label htmlFor="price"> Price: </label>
