@@ -22,3 +22,18 @@
     border: 1px solid #ccc;
     border-radius: 10px;
 }
+
+.ai-analyze-stock-btn {
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #2A7B9B;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+}
+
+.ai-analyze-stock-btn:hover,
+.ai-analyze-stock-btn:active {
+    background-color: #2a7b9b9f;
+}

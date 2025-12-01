@@ -5,6 +5,7 @@ import TshirtForm from "./TshirtForm";
 import Card from "../UI/Card"
 
 import "./Tshirts.css"
+import AIStockAnalysis from "./AIStockAnalysis";
 
 const dummyTshirts = [
     {
@@ -36,6 +37,11 @@ const dummyTshirts = [
 const Tshirts = (props) => {
     const [showForm, setShowForm] = useState(false);
     const [tshirts, setTshirts] = useState(dummyTshirts);
+    const [isAiAnalysisModalOpen, setAiAnalysisModalOpen] = useState(false);
+
+    const modalCloseHandler = () => {
+        setAiAnalysisModalOpen(!isAiAnalysisModalOpen);
+    }
 
     const handleShowForm = () => {
         setShowForm(!showForm);
@@ -55,11 +61,14 @@ const Tshirts = (props) => {
             })
         });
     }
+
     return (
         <Card className="tshirts-container">
             {!showForm && <button className="show-form" onClick={handleShowForm}>Show Add T-shirt Form</button>}
             {showForm && <TshirtForm onAddTshirt={handleAddTshirt} handleShowForm={handleShowForm} />}
             <ul className="tshirts">
+                {isAiAnalysisModalOpen && <AIStockAnalysis onClose={modalCloseHandler} tshirts={tshirts}/>}
+                <button className="ai-analyze-stock-btn" onClick={modalCloseHandler}>Analyze Stock (AI)</button>
                 {tshirts.map((tshirt, index) => {
                     return <Tshirt
                         key={index}
